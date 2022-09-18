@@ -47,4 +47,5 @@
 
 .form__button:active {
     border: 2px solid black;
+    background-color: rgb(2, 161, 161);
 }
