@@ -1,15 +1,6 @@
 {
-    const tasks = [
-        {
-            content: "asd",
-            done: false,
-        },
-        {
-            content: "sdf",
-            done: true,
-        },
-    ];
-    
+    const tasks = [];
+
     const addNewTask = (newTaskContent) => {
         tasks.push({
             content: newTaskContent,
@@ -41,7 +32,7 @@
         });
     };
 
-    const toggleTaskDone = (taskIndex) =>{
+    const toggleTaskDone = (taskIndex) => {
         tasks[taskIndex].done = !tasks[taskIndex].done;
         render();
     };
@@ -51,32 +42,33 @@
 
         for (const task of tasks) {
             htmlString += `
-            <li
-            ${task.done ? " style=\"text-decoration: line-through\"" : ""}
-            >
-            ${task.content}
-            <button class="js-done">Zrobione</button>
-            <button class="js-remove">Usuń</button>
+            <li class="taskList__task">
+              <button class="js-done list__buttonDone">
+              ${task.done ? "✔" : ""}</button>
+              <span ${task.done ? "class=\"list__taskText--lineThrough\"" : ""}>
+              ${task.content}</span>
+              <button class="js-remove list__buttonRemove">🗑</button>
             </li>
-            `;
+        `;
         }
 
         document.querySelector(".js-tasks").innerHTML = htmlString;
-        
+
         bindEvents();
     };
-
 
     const onFromSubmit = (event) => {
         event.preventDefault();
 
-        const newTaskContent = document.querySelector(".js-newTask").value.trim();
+        const newTaskContent = document.querySelector(".js-newTask")
+        const newTask = newTaskContent.value.trim();
 
-        if (newTaskContent === "") {
-            return;
+        if (newTask !== "") {
+            addNewTask(newTask);
+            newTaskContent.value = "";
         }
 
-        addNewTask(newTaskContent);
+        newTaskContent.focus();
     };
 
     const init = () => {
