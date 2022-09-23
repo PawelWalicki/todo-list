@@ -6,21 +6,25 @@
     
 }
 
-.taskList__task {
+.taskList__item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 10px;
+    align-items: center;
     border-bottom: 1px solid rgb(238, 238, 238);
     list-style-type: none;
-    padding: 5px;
-    font-size: 17px;
-    display: grid;
-    grid-template-columns: 1fr 15fr 1fr;
+    padding: 10px;
+    font-size: 17px;    
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 10px;
     align-items: center;
 }
 
-.list__taskText--lineThrough {
+.taskList__task_content--done {
     text-decoration:line-through;
 }
 
-.list__buttonDone {
+.taskList__buttonDone {
     background-color: rgb(0, 128, 0);
     color: rgb(255, 255, 255);
     height: 33px;
@@ -28,27 +32,28 @@
     border-style: none;
 }
 
-.list__buttonDone:hover {
+.taskList__buttonDone:hover {
     background-color: rgb(1, 139, 1);
     cursor: pointer;
 }
 
-.list__buttonDone:active {
+.taskList__buttonDone:active {
     border: 2px solid rgb(0, 0, 0);
 }
 
-.list__buttonRemove {
+.taskList__buttonRemove {
    float: right;
    background-color: rgb(255, 0, 0);
    height: 33px;
+   width: 33px;
    border-style: none;
    cursor: pointer;
 }
 
-.list__buttonRemove:hover {
+.taskList__buttonRemove:hover {
     background-color: rgb(234, 89, 89);
 }
 
-.list__buttonRemove:active {
+.taskList__buttonRemove:active {
     border: 2px solid rgb(0, 0, 0);
 }
